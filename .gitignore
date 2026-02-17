@@ -1,0 +1,40 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# --- Distribution / Builds ---
+build/
+dist/
+*.egg-info/
+
+# --- Google Cloud / Secrets (CRITICAL) ---
+# Ignore the service account key we just generated
+key.json
+*.json
+!app/static/*.json  # Allow JSON files in static folder if you use them for data
+secrets/
+gcloud/
+
+# --- IDEs / Editors ---
+.vscode/
+.idea/
+*.swp
+
+# --- Mac OS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Docker ---
+# We usually WANT the Dockerfile in git, but ignore local overrides
+docker-compose.override.yml
