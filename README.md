@@ -28,6 +28,30 @@ Unlike simple ML scripts, this project demonstrates a complete **MLOps lifecycle
 5.  **Inference:** The trained Linear Regression model (`.pkl`) predicts the *future* temperature.
 6.  **Response:** JSON result is returned to the user.
 
+graph TD;
+    User([User]) -->|HTTP Request| LB[Google Load Balancer];
+    LB -->|Routes Traffic| K8s[GKE Cluster];
+    
+    subgraph Kubernetes
+        K8s -->|Service| Svc[Weather Service];
+        Svc -->|Selects Pod| Pod[App Pod];
+        
+        subgraph Pod
+            App[FastAPI App];
+            Model[("ML Model (.pkl)")]
+        end
+        
+        App -->|Load| Model;
+    end
+    
+    App -->|Fetch Data| API[Open-Meteo API];
+    API -->|JSON| App;
+    App -->|JSON Response| User;
+    
+    style User fill:#f9f,stroke:#333,stroke-width:2px
+    style LB fill:#bbf,stroke:#333,stroke-width:2px
+    style API fill:#ff9,stroke:#333,stroke-width:2px
+
 ---
 
 ## 🛠️ Tech Stack
