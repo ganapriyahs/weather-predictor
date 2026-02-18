@@ -78,7 +78,10 @@ Unlike simple ML scripts, this project demonstrates a complete **MLOps lifecycle
 ├── Dockerfile           # Container definition
 ├── train_model.py       # Script to fetch data and retrain model
 └── requirements.txt     # Python dependencies
+
+
 ⚡ How to Run Locally
+
 Clone the repository:
 
 Bash
@@ -112,6 +115,7 @@ Check Status:
 Bash
 kubectl get services
 # Copy EXTERNAL-IP and visit in browser
+
 📈 Future Improvements
 Database Integration: Store historical predictions in PostgreSQL/BigQuery to analyze model drift.
 
