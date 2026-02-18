@@ -28,6 +28,7 @@ Unlike simple ML scripts, this project demonstrates a complete **MLOps lifecycle
 5.  **Inference:** The trained Linear Regression model (`.pkl`) predicts the *future* temperature.
 6.  **Response:** JSON result is returned to the user.
 
+
 ```mermaid
 graph TD;
     User([User]) -->|HTTP Request| LB[Google Load Balancer];
