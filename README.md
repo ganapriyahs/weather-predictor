@@ -21,12 +21,12 @@ Unlike simple ML scripts, this project demonstrates a complete **MLOps lifecycle
 
 
 **The Flow:**
-1.  **User** visits the web interface (FastAPI + HTML/JS).
-2.  **Ingress:** Traffic hits the Google Cloud Load Balancer (External IP).
-3.  **Service:** Kubernetes routes traffic to the active Pod.
-4.  **App:** FastAPI fetches *current* weather data from **Open-Meteo API**.
-5.  **Inference:** The trained Linear Regression model (`.pkl`) predicts the *future* temperature.
-6.  **Response:** JSON result is returned to the user.
+The application runs on Google Kubernetes Engine (GKE).
+1. **User** makes a request via the Load Balancer.
+2. **Kubernetes** routes traffic to the FastAPI container.
+3. **App** fetches live weather data from Open-Meteo API.
+4. **Model** (Linear Regression) predicts the temperature.
+5. **Prometheus** tracks the latency and health metrics. JSON result is returned to the user.
 
 ---
 
